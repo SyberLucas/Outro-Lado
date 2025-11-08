@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Página web</title>
+    <style>
+        :root{
+            --bg:#f7f8fb; --card:#fff; --text:#0f1724; --accent:#0ea5a4;
+        }
+        [data-theme="dark"]{
+            --bg:#0b1220; --card:#071226; --text:#e6eef6; --accent:#06b6d4;
+        }
+        *{box-sizing:border-box}
+        body{
+            margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+            background:linear-gradient(180deg,var(--bg),#fff); color:var(--text);
+            -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+            line-height:1.4;
+        }
+        header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;background:var(--card);position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(0,0,0,0.06)}
+        .brand{font-weight:700;display:flex;gap:.5rem;align-items:center}
+        nav a{margin-left:1rem;color:var(--text);text-decoration:none;font-weight:600}
+        .container{max-width:1000px;margin:2rem auto;padding:0 1.25rem}
+        .hero{display:grid;grid-template-columns:1fr;gap:1.25rem;align-items:center;padding:1.5rem;border-radius:12px;background:var(--card);box-shadow:0 6px 20px rgba(2,6,23,0.06)}
+        .hero h1{margin:0;font-size:clamp(1.5rem,3vw,2.25rem)}
+        .hero p{margin:.5rem 0 0;color:rgba(0,0,0,0.6)}
+        .buttons{margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap}
+        .btn{padding:.6rem .9rem;border-radius:8px;border:0;cursor:pointer;font-weight:700}
+        .btn-primary{background:var(--accent);color:white}
+        .btn-ghost{background:transparent;border:1px solid rgba(0,0,0,0.08)}
+        .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.25rem}
+        .card{background:var(--card);padding:1rem;border-radius:10px;border:1px solid rgba(0,0,0,0.04)}
+        form{display:grid;gap:.75rem}
+        input,textarea{width:100%;padding:.6rem;border-radius:8px;border:1px solid rgba(0,0,0,0.08);background:transparent;color:var(--text)}
+        textarea{min-height:120px;resize:vertical}
+        footer{padding:1rem;text-align:center;color:rgba(0,0,0,0.6)}
+        .small{font-size:.9rem;color:rgba(0,0,0,0.6)}
+        @media(min-width:800px){
+            .hero{grid-template-columns:1fr 360px}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-hidden>
+                <rect width="24" height="24" rx="6" fill="var(--accent)"></rect>
+                <path d="M7 12h10" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Página web</span>
+        </div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+            <button id="themeToggle" class="btn btn-ghost" aria-label="Cambiar tema">Modo</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section id="inicio" class="hero" aria-labelledby="hero-title">
+            <div>
+                <h1 id="hero-title">Bienvenido a tu página web</h1>
+                <p>Plantilla simple y accesible con HTML, CSS y JavaScript. Edita el contenido y personaliza estilos.</p>
+                <div class="buttons">
+                    <button class="btn btn-primary" onclick="scrollToSection('servicios')">Ver servicios</button>
+                    <button class="btn btn-ghost" onclick="scrollToSection('contacto')">Contactar</button>
+                </div>
+
+                <div class="grid" style="margin-top:1.25rem">
+                    <div class="card">
+                        <h3>Rápido</h3>
+                        <p class="small">Estructura ligera pensada para rendimiento y compatibilidad.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Responsivo</h3>
+                        <p class="small">Se adapta a móviles, tablet y escritorio con CSS moderno.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Accesible</h3>
+                        <p class="small">Buenas prácticas de etiquetas y contraste para usabilidad.</p>
+                    </div>
+                </div>
+            </div>
+
+            <aside>
+                <div class="card" role="complementary">
+                    <h3>Acerca</h3>
+                    <p class="small">Usa esta plantilla para empezar rápidamente un proyecto web. Incluye validación de formulario y cambio de tema.</p>
+                    <dl style="margin-top:.75rem;font-size:.95rem">
+                        <dt style="font-weight:700">Tecnologías</dt>
+                        <dd class="small">HTML • CSS • JavaScript</dd>
+                        <dt style="font-weight:700;margin-top:.5rem">Estado</dt>
+                        <dd class="small">Lista para personalizar</dd>
+                    </dl>
+                </div>
+            </aside>
+        </section>
+
+        <section id="servicios" class="container" aria-labelledby="servicios-title" style="margin-top:1.5rem">
+            <h2 id="servicios-title">Servicios</h2>
+            <div class="grid" style="margin-top:.75rem">
+                <div class="card">
+                    <h4>Diseño</h4>
+                    <p class="small">Creación de interfaces limpias y modernas.</p>
+                </div>
+                <div class="card">
+                    <h4>Desarrollo</h4>
+                    <p class="small">Front-end con buenas prácticas y rendimiento.</p>
+                </div>
+                <div class="card">
+                    <h4>Optimización</h4>
+                    <p class="small">Mejora de velocidad y experiencia de usuario.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" style="margin-top:1.5rem">
+            <h2>Contacto</h2>
+            <div class="grid" style="margin-top:.75rem">
+                <div class="card">
+                    <form id="contactForm" novalidate>
+                        <label>
+                            Nombre
+                            <input type="text" name="name" id="name" required placeholder="Tu nombre">
+                        </label>
+                        <label>
+                            Correo
+                            <input type="email" name="email" id="email" required placeholder="tu@ejemplo.com">
+                        </label>
+                        <label>
+                            Mensaje
+                            <textarea name="message" id="message" required placeholder="Escribe tu mensaje..."></textarea>
+                        </label>
+                        <div style="display:flex;gap:.5rem;align-items:center">
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <div id="status" class="small" aria-live="polite"></div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card">
+                    <h4>Información</h4>
+                    <p class="small">Correo: contacto@ejemplo.com</p>
+                    <p class="small">Teléfono: +34 600 000 000</p>
+                    <p class="small" style="margin-top:.5rem">También puedes enviar un mensaje usando el formulario. La validación se realiza en el navegador.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="small">© <span id="year"></span> Página web • Hecho con HTML, CSS y JavaScript</div>
+    </footer>
+
+    <script>
+        // Theme toggle con preferencia y almacenamiento local
+        const themeToggle = document.getElementById('themeToggle');
+        const root = document.documentElement;
+        const saved = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if(saved === 'dark' || (!saved && prefersDark)) root.setAttribute('data-theme','dark');
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+            localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        });
+
+        // Smooth scroll helper
+        function scrollToSection(id){
+            document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+        }
+        window.scrollToSection = scrollToSection;
+
+        // Form validation + fake submit
+        const form = document.getElementById('contactForm');
+        const status = document.getElementById('status');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            status.textContent = '';
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+            if(!name || !email || !message){
+                status.textContent = 'Por favor completa todos los campos.';
+                return;
+            }
+            if(!/^\S+@\S+\.\S+$/.test(email)){
+                status.textContent = 'Correo inválido.';
+                return;
+            }
+            // Simula envío
+            const btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            const original = btn.textContent;
+            btn.textContent = 'Enviando...';
+            try{
+                await new Promise(r => setTimeout(r, 900)); // simulación de red
+                status.textContent = 'Mensaje enviado. Gracias.';
+                form.reset();
+            }catch(err){
+                status.textContent = 'Error al enviar. Intenta de nuevo.';
+            }finally{
+                btn.disabled = false;
+                btn.textContent = original;
+            }
+        });
+
+        // Fecha en footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mejora de accesibilidad: focus visible básico
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Tab') document.documentElement.style.scrollBehavior = 'smooth';
+        }, {once:true});
+    </script>
+</body>
+</html></div>
